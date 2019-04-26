@@ -1,0 +1,16 @@
+#+ summary: We should add a summary.
+#+ endpoint: "http://example.com/sparql"
+
+ PREFIX ov: <http://bio2rdf.org/omim_vocabulary:>
+ PREFIX dct: <http://purl.org/dc/terms/>
+ SELECT distinct ?disease ?o
+ {
+  ?disease ?a ov:Phenotype .
+  ?disease dct:title ?c .
+  ?disease ov:clinical-synopsis ?cs .
+  ?cs ov:feature ?f .
+  ?f ov:x-hp ?o .
+#  BIND( STRAFTER(str(?disease),"http://bio2rdf.org/") AS ?omimid)
+#  BIND( STRAFTER(str(?o),"http://bio2rdf.org/") AS ?hpoid)
+
+}
